@@ -1,0 +1,10 @@
+
+venv/
+
+
+__pycache__/
+
+
+model_hasil_tuning/
+
+.DS_Store

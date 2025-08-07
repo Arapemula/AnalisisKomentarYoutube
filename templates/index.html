@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisis Sentimen Komentar YouTube</title>
+    <style>
+        body { font-family: sans-serif; margin: 40px; background-color: #f4f4f9; color: #333; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1 { color: #d9534f; }
+        input[type="text"] { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        input[type="submit"] { background-color: #5cb85c; color: white; padding: 12px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        input[type="submit"]:hover { background-color: #4cae4c; }
+
+        /* CSS untuk loader */
+        #loader { text-align: center; margin-top: 40px; }
+        .spinner {
+            border: 8px solid #f3f3f3; /* Abu-abu muda */
+            border-top: 8px solid #5cb85c; /* Hijau agar sesuai dengan tombol */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1.5s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="form-container">
+            <h1>Analisis Sentimen & Emosi Komentar YouTube</h1>
+            <p>Masukkan URL video YouTube di bawah ini untuk memulai analisis terhadap komentar-komentarnya.</p>
+            <form action="/analisis" method="post">
+                <label for="youtube_url">URL Video YouTube:</label>
+                <input type="text" id="youtube_url" name="youtube_url" placeholder="Contoh: https://www.youtube.com/watch?v=dQw4w9WgXcQ" required>
+                <input type="submit" value="Analisis Sekarang">
+            </form>
+        </div>
+        <div id="loader" style="display:none;">
+            <div class="spinner"></div>
+            <p>Sedang menganalisis... Proses ini mungkin memakan waktu beberapa menit, mohon tunggu.</p>
+        </div>
+    </div>
+    <script>
+        document.querySelector('form').addEventListener('submit', function() {
+            document.getElementById('form-container').style.display = 'none';
+            document.getElementById('loader').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
